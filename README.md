@@ -1,5 +1,5 @@
 
-Nextjs , Shadcn , Prisma , PostgreSql , Cockroachdb , Tailwindcss
+Nextjs , Shadcn , Prisma , PostgreSql , Cockroachdb , Tailwindcss , Recharts
 
 
 ```bash
