@@ -24,6 +24,7 @@ import SkeletonWrapper from "@/components/SkeletonWrapper";
 import { UserSettings } from "@prisma/client";
 import { UpdateUserCurrency } from "@/app/wizard/_actions/userSettings";
 import { toast } from "sonner";
+import Image from "next/image";
 
 export function CurrencyComboBox() {
   const [open, setOpen] = React.useState(false);
@@ -148,6 +149,7 @@ function OptionList({
                 setOpen(false);
               }}
             >
+              <Image src={currency?.flagUrl} alt={currency?.label} className="w-12 h-auto"/>
               {currency.label}
             </CommandItem>
           ))}
