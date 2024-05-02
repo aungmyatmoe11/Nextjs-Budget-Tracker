@@ -93,7 +93,7 @@ function StatCard({
     [formatter]
   );
 
-  function setBackgroundColor(title,balance = 0) {
+  function setBackgroundColor(title : any,balance = 0) {
     if(title === 'Expense') return 'text-red-500';
     if (balance > 0) {
         return 'text-emerald-500';
