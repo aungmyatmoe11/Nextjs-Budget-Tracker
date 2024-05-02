@@ -93,7 +93,8 @@ function StatCard({
     [formatter]
   );
 
-  function setBackgroundColor(balance = 0) {
+  function setBackgroundColor(title,balance = 0) {
+    if(title === 'Expense') return 'text-red-500';
     if (balance > 0) {
         return 'text-emerald-500';
     } else if (balance < 0) {
@@ -116,7 +117,7 @@ function StatCard({
           formattingFn={formatFn}
           className={cn(
             "text-2xl",
-            setBackgroundColor(value)
+            setBackgroundColor(title,value)
           )}
         />
       </div>
