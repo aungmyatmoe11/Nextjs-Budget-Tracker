@@ -4,6 +4,7 @@ import { GetBalanceStatsResponseType } from "@/app/api/stats/balance/route";
 import SkeletonWrapper from "@/components/SkeletonWrapper";
 import { Card } from "@/components/ui/card";
 import { DateToUTCDate, GetFormatterForCurrency } from "@/lib/helpers";
+import { cn } from "@/lib/utils";
 import { UserSettings } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
 import { TrendingDown, TrendingUp, Wallet } from "lucide-react";
@@ -92,6 +93,16 @@ function StatCard({
     [formatter]
   );
 
+  function setBackgroundColor(balance = 0) {
+    if (balance > 0) {
+        return 'text-emerald-500';
+    } else if (balance < 0) {
+        return 'text-red-500';
+    } else {
+        return 'text-gray-600';
+    }
+  }
+
   return (
     <Card className="flex h-24 w-full items-center gap-2 p-4">
       {icon}
@@ -103,7 +114,10 @@ function StatCard({
           end={value}
           decimals={2}
           formattingFn={formatFn}
-          className="text-2xl"
+          className={cn(
+            "text-2xl",
+            setBackgroundColor(value)
+          )}
         />
       </div>
     </Card>
