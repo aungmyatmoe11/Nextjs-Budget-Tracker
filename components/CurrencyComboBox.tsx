@@ -91,7 +91,18 @@ export function CurrencyComboBox() {
               className="w-full justify-start"
               disabled={mutation.isPending}
             >
-              {selectedOption ? <>{selectedOption.label}</> : <>Set currency</>}
+              {selectedOption ? (
+                <>
+                  <Image
+                    src={selectedOption?.flagUrl}
+                    alt={selectedOption?.label}
+                    className="w-10 h-auto mr-2"
+                  />
+                  {selectedOption.label}
+                </>
+              ) : (
+                <>Set currency</>
+              )}
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-[200px] p-0" align="start">
@@ -149,7 +160,11 @@ function OptionList({
                 setOpen(false);
               }}
             >
-              <Image src={currency?.flagUrl} alt={currency?.label} className="w-12 h-auto"/>
+              <Image
+                src={currency?.flagUrl}
+                alt={currency?.label}
+                className="w-10 h-auto mr-2"
+              />
               {currency.label}
             </CommandItem>
           ))}
